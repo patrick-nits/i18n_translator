@@ -1,14 +1,13 @@
 require 'i18n_translator/version'
+
 module I18nTranslator
   class << self
     attr_accessor :configuration
+  end
 
-    def configure
-      # self.configuration ||=
-      # yield(configuration) if block_given?
-      Configuration.new
-    end
-
+  def self.configure
+    self.configuration ||= Configuration.new
+    yield(configuration) if block_given?
   end
 
   class Configuration
